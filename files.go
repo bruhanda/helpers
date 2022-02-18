@@ -2,7 +2,7 @@ package helpers
 
 import "os"
 
-func WriteToFile(file string, data []byte) error {
+func WriteToFile(file string, data string) error {
 	fo, err := os.Create(file)
 	if err != nil {
 		return err
@@ -12,7 +12,7 @@ func WriteToFile(file string, data []byte) error {
 			panic(err)
 		}
 	}()
-	_, err = fo.Write(data)
+	_, err = fo.WriteString(data)
 	if err != nil {
 		return err
 	}
